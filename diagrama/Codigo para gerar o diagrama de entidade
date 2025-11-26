@@ -1,0 +1,70 @@
+erDiagram
+    USUARIO {
+        int id PK
+        string nome
+        string email
+        string senha
+        int data_cadastro
+    }
+
+    TAREFA {
+        int id PK
+        int usuario_id FK
+        int categoria_id FK
+        string titulo
+        string descricao
+        string status
+        int prioridade
+        int data_criacao
+        int data_limite
+        int data_conclusao
+    }
+
+    CATEGORIA {
+        int id PK
+        string nome
+        string descricao
+    }
+
+    TEMPO_GASTO {
+        int id PK
+        int tarefa_id FK
+        float horas
+        int data_registro
+    }
+
+    RELATORIO {
+        int id PK
+        int usuario_id FK
+        int total_tarefas
+        int tarefas_concluidas
+        float tempo_total
+        int data_geracao
+    }
+
+    COMENTARIO {
+        int id PK
+        int tarefa_id FK
+        int usuario_id FK
+        string texto
+        int data_comentario
+    }
+
+    ANEXO {
+        int id PK
+        int tarefa_id FK
+        string nome_arquivo
+        string tipo_arquivo
+        string caminho
+    }
+
+    %% RELACIONAMENTOS
+    USUARIO ||--o{ TAREFA : ""
+    USUARIO ||--o{ RELATORIO : ""
+    USUARIO ||--o{ COMENTARIO : ""
+
+    CATEGORIA ||--o{ TAREFA : ""
+
+    TAREFA ||--o{ TEMPO_GASTO : ""
+    TAREFA ||--o{ COMENTARIO : ""
+    TAREFA ||--o{ ANEXO : "
