@@ -7,6 +7,7 @@ from controllers.comentario_controller import ComentarioController
 from controllers.anexo_controller import AnexoController
 from controllers.tempo_gasto_controller import TempoGastoController
 
+# Menu para o controle das funções
 class Menu:
     def __init__(self, db):
         self.ui = MenuUI()
